@@ -12,7 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteLayout } from "@/components/layout/SiteLayout";
-import { siteConfig } from "@/config/site";
+import { siteConfig, SITE_URL } from "@/config/site";
 
 function NotFoundComponent() {
   return (
@@ -103,9 +103,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "HairSalon",
-          name: siteConfig.name,
+          "@type": "WebSite",
+          name: `${siteConfig.name} Nalbari`,
+          url: SITE_URL,
           description: siteConfig.description,
+          inLanguage: "en-IN",
         }),
       },
     ],
@@ -118,7 +120,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <head>
         <HeadContent />
       </head>
