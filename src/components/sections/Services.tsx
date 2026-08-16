@@ -45,14 +45,10 @@ export function Services() {
 
     const items = node.querySelectorAll<HTMLElement>("[data-reveal]");
     if (items.length === 0) return;
-    // eslint-disable-next-line no-console
-    console.log("[Services] observer starting for", items.length, "items");
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // eslint-disable-next-line no-console
-          console.log("[Services] entry", entry.isIntersecting, entry.target.getAttribute("data-index"));
           if (!entry.isIntersecting) return;
           const index = Number(entry.target.getAttribute("data-index"));
           setVisible((prev) => new Set(prev).add(index));
