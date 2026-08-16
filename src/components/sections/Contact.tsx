@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Phone, MapPin, Clock, ArrowUpRight, Calendar } from "lucide-react";
+import { Phone, Clock, ArrowUpRight, Calendar } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 function StructuredData() {
@@ -117,23 +117,6 @@ export function Contact() {
 
               <address className="mt-6 not-italic">
                 <ul className="space-y-5">
-                  <li className="flex items-start gap-4">
-                    <MapPin
-                      className="mt-0.5 h-5 w-5 shrink-0 text-primary"
-                      aria-hidden="true"
-                    />
-                    <div>
-                      <p className="text-sm font-semibold uppercase tracking-[0.12em] text-foreground">
-                        Address
-                      </p>
-                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                        {siteConfig.address.street},
-                        <br />
-                        {siteConfig.address.ward}, {siteConfig.address.locality},{" "}
-                        {siteConfig.address.region} {siteConfig.address.postalCode}
-                      </p>
-                    </div>
-                  </li>
 
                   <li className="flex items-start gap-4">
                     <Phone
