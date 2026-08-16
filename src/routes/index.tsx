@@ -36,7 +36,7 @@ function Index() {
       <Gallery />
       <Reviews />
       <Contact />
-
+      <Footer />
     </>
   );
 }
