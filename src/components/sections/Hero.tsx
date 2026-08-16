@@ -1,6 +1,7 @@
 import { ArrowRight, Clock, Facebook, Instagram, Scissors, ShieldCheck, SprayCan, Youtube } from "lucide-react";
 
-const heroArt = "/images/hero-gent.png";
+const heroArt = "/images/hero-gent.webp";
+const heroArtSmall = "/images/hero-gent-746.webp";
 
 const features = [
   { icon: Scissors, title: "Expert Barbers", copy: ["Skilled professionals", "for your best look"] },
@@ -16,6 +17,8 @@ export function Hero() {
       <div className="pointer-events-none absolute -top-9 right-[8%] h-[78%] w-[68%] scale-110 sm:top-0 sm:right-[6%] sm:h-[82%] sm:w-[58%] sm:scale-100 lg:right-0 lg:h-[92%] lg:w-[52%]">
         <img
           src={heroArt}
+          srcSet={`${heroArtSmall} 746w, ${heroArt} 1491w`}
+          sizes="(max-width: 640px) 68vw, (max-width: 1024px) 58vw, 52vw"
           alt="Illustrated portrait of a modern gentleman with a sharp fade haircut and groomed beard"
           width={1491}
           height={1055}
