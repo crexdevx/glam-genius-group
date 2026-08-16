@@ -39,6 +39,14 @@ const localBusinessSchema = {
     { "@type": "City", name: "Nalbari" },
     { "@type": "AdministrativeArea", name: "Nalbari district, Assam" },
   ],
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "09:00",
+      closes: siteConfig.closingTime,
+    },
+  ],
   hasMap: siteConfig.googleMapsDirectionsUrl,
   makesOffer: siteConfig.services.map((service) => ({
     "@type": "Offer",

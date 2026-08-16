@@ -2,45 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { Phone, Clock, ArrowUpRight, Calendar } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
-function StructuredData() {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "BeautySalon",
-    name: siteConfig.name,
-    description: siteConfig.description,
-    telephone: `+91${siteConfig.phone}`,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: siteConfig.address.street,
-      addressLocality: siteConfig.address.locality,
-      addressRegion: siteConfig.address.region,
-      postalCode: siteConfig.address.postalCode,
-      addressCountry: siteConfig.address.country,
-    },
-    url: typeof window !== "undefined" ? window.location.origin : undefined,
-    areaServed: {
-      "@type": "City",
-      name: "Nalbari",
-    },
-    priceRange: "$$",
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        opens: "09:00",
-        closes: "21:00",
-      },
-    ],
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
-  );
-}
-
 export function Contact() {
   const [visible, setVisible] = useState<Set<number>>(new Set());
   const containerRef = useRef<HTMLElement>(null);
@@ -84,7 +45,6 @@ export function Contact() {
       className="bg-background section-y"
       aria-labelledby="contact-heading"
     >
-      <StructuredData />
       <div className="container-page">
         <div data-reveal data-index={0} className={`mx-auto max-w-2xl text-center ${reveal(0)}`}>
           <p className="eyebrow text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground sm:text-xs">
