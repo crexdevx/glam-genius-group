@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from "react";
-import shot1 from "@/assets/salon-interior-1.jpg";
-import shot2 from "@/assets/salon-interior-2.jpg";
+import shot1 from "@/assets/salon-interior-1.jpg.asset.json";
+import shot2 from "@/assets/salon-interior-2.jpg.asset.json";
 
 const photos = [
   {
-    src: shot1,
+    src: shot1.url,
     alt: "A4 Gents Salon styling stations with yellow cabinets, backlit mirrors and barber chairs in Nalbari, Assam",
   },
   {
-    src: shot2,
+    src: shot2.url,
     alt: "Row of barber chairs and illuminated product shelves inside A4 Gents Salon",
   },
 ];
