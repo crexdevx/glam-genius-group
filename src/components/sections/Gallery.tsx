@@ -1,6 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import shot1 from "@/assets/salon-interior-1.jpg.asset.json";
 import shot2 from "@/assets/salon-interior-2.jpg.asset.json";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const photos = [
   {
