@@ -1,5 +1,10 @@
+// Update this when the final custom domain is connected.
+export const SITE_URL = "https://glam-genius-group.lovable.app";
+
 export const siteConfig = {
+  url: SITE_URL,
   name: "A4 Gents Salon",
+  legalName: "A4 Gents Salon Nalbari",
   shortName: "A4",
   tagline: "Precision grooming for the modern gentleman",
   description:
@@ -25,6 +30,14 @@ export const siteConfig = {
     "https://www.google.com/maps/dir/?api=1&destination=A4%20Gents%20Salon%20Nalbari%20Assam%20781353",
   googleMapsEmbedUrl:
     "https://www.google.com/maps?q=A4%20Gents%20Salon%20Nalbari%20Assam%20781353&output=embed",
+  closingTime: "21:00",
+  services: [
+    "Men's Haircut",
+    "Hairstyling",
+    "Facials",
+    "Head & Shoulder Massage",
+    "Wedding & Event Preparation",
+  ] as const,
   nav: [
     { label: "Home", href: "/" },
     { label: "Services", href: "#services" },
