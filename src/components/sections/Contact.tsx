@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Phone, MapPin, Clock, ArrowUpRight, Calendar } from "lucide-react";
+import { Phone, Clock, ArrowUpRight, Calendar } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 function StructuredData() {
