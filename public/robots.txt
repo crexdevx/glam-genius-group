@@ -12,3 +12,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Update the host here when the final domain is connected.
+Sitemap: https://glam-genius-group.lovable.app/sitemap.xml
