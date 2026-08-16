@@ -1,6 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import shot1 from "@/assets/salon-interior-1.jpg.asset.json";
 import shot2 from "@/assets/salon-interior-2.jpg.asset.json";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const photos = [
   {
@@ -80,17 +87,38 @@ export function Gallery() {
               style={{ "--reveal-delay": `${(i + 1) * 90}ms` } as React.CSSProperties}
               className={`group relative overflow-hidden border border-border bg-card ${reveal(i + 1)}`}
             >
-              <span
-                aria-hidden="true"
-                className="absolute left-0 top-0 z-10 h-full w-[3px] bg-primary"
-              />
-              <img
-                src={photo.src}
-                alt={photo.alt}
-                loading="lazy"
-                decoding="async"
-                className="aspect-[4/5] w-full object-cover transition-transform duration-700 ease-smooth group-hover:scale-[1.03] sm:aspect-[4/3] md:aspect-[3/4]"
-              />
+              <Dialog>
+                <DialogTrigger asChild>
+                  <button
+                    type="button"
+                    className="block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                    aria-label={`View larger image: ${photo.alt}`}
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="absolute left-0 top-0 z-10 h-full w-[3px] bg-primary"
+                    />
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      loading="lazy"
+                      decoding="async"
+                      className="aspect-[4/5] w-full cursor-pointer object-cover transition-transform duration-700 ease-smooth group-hover:scale-[1.03] sm:aspect-[4/3] md:aspect-[3/4]"
+                    />
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="max-w-5xl border-none bg-transparent p-0 shadow-none">
+                  <DialogTitle className="sr-only">{photo.alt}</DialogTitle>
+                  <DialogDescription className="sr-only">
+                    Enlarged view of the salon photo
+                  </DialogDescription>
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    className="animate-fade-in max-h-[85vh] w-full rounded-lg object-contain shadow-2xl"
+                  />
+                </DialogContent>
+              </Dialog>
             </li>
           ))}
         </ul>
