@@ -13,7 +13,7 @@ const title = "A4 Gents Salon Nalbari | Best Men's Salon & Haircut in Nalbari";
 const description =
   "A4 Gents Salon in Nalbari, Assam — men's haircuts, hairstyling, facials, massage and wedding grooming near MNC College, Ward No. 7. Call 084867 54335.";
 const pageUrl = `${SITE_URL}/`;
-const ogImage = `${SITE_URL}/images/hero-gent.png`;
+const ogImage = `${SITE_URL}/images/hero-gent-og.jpg`;
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
@@ -38,6 +38,14 @@ const localBusinessSchema = {
   areaServed: [
     { "@type": "City", name: "Nalbari" },
     { "@type": "AdministrativeArea", name: "Nalbari district, Assam" },
+  ],
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "09:00",
+      closes: siteConfig.closingTime,
+    },
   ],
   hasMap: siteConfig.googleMapsDirectionsUrl,
   makesOffer: siteConfig.services.map((service) => ({
@@ -77,7 +85,17 @@ export const Route = createFileRoute("/")({
       { name: "geo.region", content: "IN-AS" },
       { name: "geo.placename", content: "Nalbari, Assam" },
     ],
-    links: [{ rel: "canonical", href: pageUrl }],
+    links: [
+      { rel: "canonical", href: pageUrl },
+      {
+        rel: "preload",
+        as: "image",
+        href: "/images/hero-gent.webp",
+        imageSrcSet: "/images/hero-gent-746.webp 746w, /images/hero-gent.webp 1491w",
+        imageSizes: "(max-width: 640px) 68vw, (max-width: 1024px) 58vw, 52vw",
+        fetchPriority: "high",
+      },
+    ],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(localBusinessSchema) },
     ],
